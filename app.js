@@ -1,17 +1,17 @@
-const http = require("http");
+/**
+ * npm -i <package_name>
+ *
+ * npm install -g <package_name>
+ * sudo npm install -g <package_name> // for mac
+ *
+ * package.json -
+ * manual configure - create a new file by name package.json and configure each and every property of the app one by one.
+ * npm init //Will ask step-by-step for each property
+ * npm init -y // Will define the package json and configure automatically
+ *
+ * for dev environment
+ * npm i nodemon --save-dev
+ * npm i nodemon -D
+ */
 
-const server = http.createServer((req, res) => {
-  if (req.url === "/") {
-    res.end("This is my home page.");
-    return;
-  }
-  if (req.url === "/about") {
-    res.end("This is my about page.");
-    return;
-  }
-  res.end(`<div> <h1>404</h1>
-  <h2>Oops!! No page found!!</h2></div>`);
-  return;
-});
-
-server.listen(5002);
+console.log("Hello I am Maulik the Master.");
