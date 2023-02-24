@@ -16,8 +16,16 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/products", (req, res) => {
-  console.log(products);
-  res.send(products);
+  const { search } = req.query;
+  console.log(req.query);
+
+  let newProducts = products;
+  if (search) {
+    newProducts = products.filter(
+      (prd) => prd.name.toLowerCase().startsWith(search.toLowerCase()) //Watch -> watch  = W ->w
+    );
+  }
+  res.json({ success: true, data: newProducts });
 });
 
 app.get("/products/new", (req, res) => {

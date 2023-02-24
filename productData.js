@@ -35,4 +35,11 @@ module.exports = products = [
       "https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-k3-the-drift-saga-stride-2-0-case-cover-for-iphone-xr-images/DailyObjects-K3-The-Drift-Saga-Stride-2-0-Case-Cover-For-iPhone-XR.png?tr=cm-pad_resize,v-2,w-768,h-799,dpr-2,q-60",
     description: "Hey this is my mobile cover",
   },
+  {
+    id: 6,
+    name: "Water Bottle",
+    type: "Accessory",
+    productImage: "",
+    description: "Water bottle hot and cold",
+  },
 ];
