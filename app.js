@@ -3,20 +3,23 @@
 //req => middleware => res
 
 const express = require("express");
-const morgan = require("morgan");
 
 const app = express();
 
 const middleWare = require("./myMiddleware");
 const authenticationApp = require("./auth");
 
-app.use([middleWare, authenticationApp]);
+const myRoute = require("./routes");
+const loginRoute = require("./routes/login");
 
-app.use(morgan("tiny"));
+// app.use("/api", middleWare);
 
-app.get("/", (req, res) => {
-  res.send("Home");
-});
+app.use("/api", [myRoute, middleWare]);
+app.use("/login", loginRoute);
+
+// app.get("/", (req, res) => {
+//   res.send("Home");
+// });
 
 app.get("/about", (req, res) => {
   res.send("About");
@@ -31,5 +34,5 @@ app.get("/orders", (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log("Ap is listening on port 5000");
+  console.log("App is listening on port 5000");
 });
