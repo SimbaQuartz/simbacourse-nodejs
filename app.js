@@ -5,6 +5,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 
+const myRoute = require("./routes");
 // mongodb+srv://node:<password>@nodejs-class.ozoaygd.mongodb.net/test
 
 // const { MongoClient, ServerApiVersion } = require("mongodb");
@@ -35,6 +36,11 @@ mongoose
     }
   )
   .then(() => console.log(`MongoDB Connected!`));
+
+app.use(express.json({ limit: "50mb", extended: true }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
+app.use("/api", myRoute);
+
 app.listen(5000, () => {
   console.log("App is listening on port 5000");
 });
